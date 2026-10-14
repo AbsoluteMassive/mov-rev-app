@@ -10,7 +10,10 @@
 }
 body {
   margin: 0;
+  color: #fff;
   font-family: "Montserrat", sans-serif;
+  background: #070707;
+  background: linear-gradient(307deg, #070707, #040329, #9b2300);
 }
 #root {
   min-height: 100vh;
