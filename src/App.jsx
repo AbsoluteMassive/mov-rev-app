@@ -1,9 +1,15 @@
 import "./App.css";
+import Footer from "./assets/components/Footer";
+import Navbar from "./assets/components/Navbar";
 
 function App() {
   return (
     <>
-      <h1>Hello world!</h1>
+      <Navbar />
+      <main className="mainC">
+        <h2>Hello world!</h2>
+      </main>
+      <Footer />
     </>
   );
 }

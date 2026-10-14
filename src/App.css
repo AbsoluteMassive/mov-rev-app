@@ -1,0 +1,149 @@
+.navC {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: white;
+  margin-bottom: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+.mainC {
+  flex: 1;
+}
+
+.navC img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  padding: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.linkC {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.linkC a {
+  text-decoration: none;
+  border: 1px solid transparent;
+  color: black;
+  padding: 6px 10px;
+  white-space: nowrap;
+  transition: ease 0.3s;
+}
+.linkC a:hover {
+  border: 1px solid black;
+}
+
+.inputC {
+  position: relative;
+  margin: 10px 1rem;
+  width: 190px;
+  flex-shrink: 0;
+}
+
+.inputC input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px 0;
+  border: none;
+  border-bottom: 2px solid black;
+  background: transparent;
+  font-size: 1rem;
+}
+
+.inputC input:focus {
+  outline: none;
+  border-bottom-color: #007bff;
+}
+
+.inputC label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+  font-size: 18px;
+  color: black;
+  transition: 0.3s ease;
+}
+
+.inputC input:focus + label,
+.inputC input:valid + label {
+  transform: translateY(-20px);
+  font-size: 14px;
+}
+.menuC {
+  display: none;
+  background-color: transparent;
+  border: 1px solid black;
+  padding: 6px 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.fC {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  margin-top: auto;
+  border-top: 1px solid black;
+}
+
+.flc {
+  display: flex;
+  gap: 16px;
+}
+
+.flc a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+.fC p {
+  margin: 0;
+  font-size: 14px;
+  color: black;
+}
+@media (max-width: 550px) {
+  .navC {
+    gap: 0.5rem;
+  }
+
+  .navC img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .inputC {
+    width: 150px;
+    margin: 10px 0;
+  }
+
+  .linkC {
+    display: none;
+  }
+
+  .menuC {
+    display: block;
+  }
+  .fC {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+@media (max-width: 320px) {
+  .inputC {
+    width: 100px;
+  }
+}

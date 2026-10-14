@@ -4,8 +4,16 @@
 @font-face {
   font-family: "Montserrat";
   src: url("./assets/fonts/Montserrat-VariableFont_wght.woff2");
+  format: ("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 body {
   margin: 0;
-  font-family: "Montserrat", "sans-serif";
+  font-family: "Montserrat", sans-serif;
+}
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
