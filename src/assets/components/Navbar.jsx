@@ -1,7 +1,7 @@
 const Navbar = () => {
   return (
     <nav className="navC">
-      <img src="https://placehold.co/600" alt="logo" />
+      <span alt="logo">Movie Review</span>
       <div className="inputC">
         <input
           type="search"

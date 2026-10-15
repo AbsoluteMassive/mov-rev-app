@@ -16,12 +16,10 @@
   flex: 1;
 }
 
-.navC img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  padding: 4px;
-  object-fit: cover;
+.navC span {
+  background: transparent;
+  font-size: 1rem;
+  white-space: nowrap;
   flex-shrink: 0;
 }
 
@@ -117,7 +115,7 @@
   font-size: 16px;
   color: #fff;
 }
-@media (max-width: 550px) {
+@media (max-width: 600px) {
   .navC {
     gap: 0.5rem;
   }
@@ -141,8 +139,15 @@
     text-align: center;
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 400px) {
   .inputC {
     width: 100px;
+  }
+}
+@media (max-width: 300px) {
+  .navC span {
+    white-space: normal;
+    display: inline-block;
+    max-width: 80px;
   }
 }
