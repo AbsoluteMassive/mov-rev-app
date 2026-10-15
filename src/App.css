@@ -29,20 +29,48 @@
   gap: 1rem;
 }
 
-.linkC a {
+.linkC a,
+.flc a {
   text-decoration: none;
-  border: 1px solid transparent;
+  border: 1px solid #fff;
   color: #fff;
   padding: 6px 10px;
   text-transform: uppercase;
   transition:
     transform 0.3s ease-in-out,
-    border-color 0.3s ease-in-out;
+    border-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
 }
-.linkC a:hover {
-  border-color: #fff;
+.linkC a:hover,
+.menuC:hover,
+.flc a:hover {
+  border: 2px solid transparent;
+  border-image: linear-gradient(307deg, #c19292, #2019d7, #e14414) 1;
+  border-color: #e14414;
+  background: linear-gradient(307deg, #c19292, #2019d7, #e14414);
+  background-clip: text;
+  color: transparent;
   transform: scale(1.05);
 }
+.linkC a:active,
+.menuC:active,
+.flc a:active {
+  transform: scale(0.95);
+}
+.menuC {
+  display: none;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 6px 10px;
+  font-size: 20px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease-in-out,
+    border-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+
 .inputC {
   position: relative;
   margin: 10px 1rem;
@@ -81,18 +109,8 @@
   transform: translateY(-20px);
   font-size: 14px;
 }
-.menuC {
-  display: none;
-  background-color: transparent;
-  color: #fff;
-  border: 1px solid #fff;
-  padding: 6px 10px;
-  font-size: 20px;
-  cursor: pointer;
-}
 .fC {
   background: #000;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -105,9 +123,7 @@
 }
 
 .flc a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
+  border: 2px solid transparent;
 }
 
 .fC p {
@@ -146,6 +162,9 @@
   .navC span,
   .menuC {
     font-size: 1rem;
+  }
+  .flc {
+    gap: 0.5rem;
   }
 }
 @media (max-width: 300px) {
