@@ -18,7 +18,7 @@
 
 .navC span {
   background: transparent;
-  font-size: 1rem;
+  font-size: 20px;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -142,6 +142,10 @@
 @media (max-width: 400px) {
   .inputC {
     width: 100px;
+  }
+  .navC span,
+  .menuC {
+    font-size: 1rem;
   }
 }
 @media (max-width: 300px) {
