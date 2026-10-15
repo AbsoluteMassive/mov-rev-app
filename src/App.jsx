@@ -5,11 +5,19 @@ import Navbar from "./assets/components/Navbar";
 function App() {
   return (
     <>
-      <Navbar />
+      <Navbar logoName={"Movie Review"}>
+        <a href="#">link1</a>
+        <a href="#">link2</a>
+        <a href="#">link3</a>
+      </Navbar>
       <main className="mainC">
         <h2>Hello world!</h2>
       </main>
-      <Footer />
+      <Footer>
+        <a href="#">Link1</a>
+        <a href="#">link2</a>
+        <a href="#">link3</a>
+      </Footer>
     </>
   );
 }

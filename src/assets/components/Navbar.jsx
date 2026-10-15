@@ -1,7 +1,7 @@
-const Navbar = () => {
+const Navbar = ({ children, logoName }) => {
   return (
     <nav className="navC">
-      <span alt="logo">Movie Review</span>
+      <span alt="logo">{logoName}</span>
       <div className="inputC">
         <input
           type="search"
@@ -12,11 +12,7 @@ const Navbar = () => {
         />
         <label htmlFor="search">Search</label>
       </div>
-      <div className="linkC">
-        <a href="#">link1</a>
-        <a href="#">link2</a>
-        <a href="#">link3</a>
-      </div>
+      <div className="linkC">{children}</div>
       <button className="menuC" aria-label="Open menu">
         H
       </button>
