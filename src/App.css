@@ -133,10 +133,6 @@
   color: #fff;
 }
 @media (max-width: 600px) {
-  html,
-  body {
-    overflow-x: hidden;
-  }
   .navC {
     gap: 0.5rem;
   }
