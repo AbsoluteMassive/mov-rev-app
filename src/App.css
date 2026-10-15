@@ -10,6 +10,7 @@
   z-index: 10;
   background: transparent;
   margin-bottom: 1rem;
+
   box-shadow: rgba(2, 2, 37, 0.268) 2.4px 2.4px 3.2px;
 }
 .mainC {
@@ -132,6 +133,10 @@
   color: #fff;
 }
 @media (max-width: 600px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
   .navC {
     gap: 0.5rem;
   }
@@ -168,9 +173,18 @@
   }
 }
 @media (max-width: 300px) {
+  .navC {
+    gap: 4px;
+  }
   .navC span {
     white-space: normal;
     display: inline-block;
-    max-width: 80px;
+    max-width: 69px;
+  }
+  .flc {
+    gap: 0.25rem;
+  }
+  .inputC {
+    width: 69px;
   }
 }
