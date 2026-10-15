@@ -43,7 +43,6 @@
     color 0.3s ease-in-out;
 }
 .linkC a:hover,
-.menuC:hover,
 .flc a:hover {
   border: 2px solid transparent;
   border-image: linear-gradient(307deg, #c19292, #2019d7, #e14414) 1;
@@ -53,25 +52,21 @@
   color: transparent;
   transform: scale(1.05);
 }
+.menuC {
+  display: none;
+  background-color: transparent;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.3s ease;
+}
 .linkC a:active,
 .menuC:active,
 .flc a:active {
   transform: scale(0.95);
 }
-.menuC {
-  display: none;
-  background-color: transparent;
-  color: #fff;
-  border: 1px solid #fff;
-  padding: 6px 10px;
-  font-size: 20px;
-  cursor: pointer;
-  transition:
-    transform 0.3s ease-in-out,
-    border-color 0.3s ease-in-out,
-    color 0.3s ease-in-out;
-}
-
 .inputC {
   position: relative;
   margin: 10px 1rem;
@@ -90,11 +85,9 @@
   background: transparent;
   font-size: 1rem;
 }
-
 .inputC input:focus {
   outline: none;
 }
-
 .inputC label {
   position: absolute;
   top: 15px;
@@ -104,7 +97,6 @@
   color: #fff;
   transition: 0.3s ease;
 }
-
 .inputC input:focus + label,
 .inputC input:valid + label {
   transform: translateY(-20px);

@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 const Navbar = ({ children, logoName }) => {
   return (
     <nav className="navC">
@@ -14,7 +16,7 @@ const Navbar = ({ children, logoName }) => {
       </div>
       <div className="linkC">{children}</div>
       <button className="menuC" aria-label="Open menu">
-        H
+        <FontAwesomeIcon icon={faBars} />
       </button>
     </nav>
   );
