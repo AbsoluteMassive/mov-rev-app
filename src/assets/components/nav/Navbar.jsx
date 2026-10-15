@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import "../nav/navbar.css";
 const Navbar = ({ children, logoName }) => {
   return (
     <nav className="navC">

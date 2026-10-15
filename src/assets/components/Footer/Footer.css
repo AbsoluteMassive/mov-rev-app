@@ -1,0 +1,62 @@
+.fC {
+  background: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+.flc {
+  display: flex;
+  gap: 16px;
+}
+.flc a {
+  border: 2px solid #fff;
+}
+.flc a {
+  text-decoration: none;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 6px 10px;
+  text-transform: uppercase;
+  transition:
+    transform 0.3s ease-in-out,
+    border-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+
+.flc a:hover {
+  border: 2px solid transparent;
+  border-image: linear-gradient(307deg, #c19292, #2019d7, #e14414) 1;
+  border-color: #e14414;
+  background: linear-gradient(307deg, #c19292, #2019d7, #e14414);
+  background-clip: text;
+  color: transparent;
+  transform: scale(1.05);
+}
+.flc a:active {
+  transform: scale(0.95);
+}
+.fC p {
+  margin: 0;
+  font-size: 16px;
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .fC {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .flc {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .flc {
+    gap: 0.25rem;
+  }
+}

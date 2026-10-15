@@ -1,0 +1,137 @@
+.navC {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: transparent;
+  margin-bottom: 1rem;
+  box-shadow: rgba(2, 2, 37, 0.268) 2.4px 2.4px 3.2px;
+}
+.navC span {
+  background: transparent;
+  font-size: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.linkC {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.linkC a {
+  text-decoration: none;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 6px 10px;
+  text-transform: uppercase;
+  transition:
+    transform 0.3s ease-in-out,
+    border-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+.linkC a:hover {
+  border: 2px solid transparent;
+  border-image: linear-gradient(307deg, #c19292, #2019d7, #e14414) 1;
+  border-color: #e14414;
+  background: linear-gradient(307deg, #c19292, #2019d7, #e14414);
+  background-clip: text;
+  color: transparent;
+  transform: scale(1.05);
+}
+.menuC {
+  display: none;
+  background-color: transparent;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.3s ease;
+}
+.linkC a:active,
+.menuC:active {
+  transform: scale(0.95);
+}
+.inputC {
+  position: relative;
+  margin: 10px 1rem;
+  width: 190px;
+  flex-shrink: 0;
+}
+
+.inputC input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  color: #fff;
+  padding: 15px 0;
+  border: none;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  font-size: 1rem;
+}
+.inputC input:focus {
+  outline: none;
+}
+.inputC label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+  font-size: 18px;
+  color: #fff;
+  transition: 0.3s ease;
+}
+.inputC input:focus + label,
+.inputC input:valid + label {
+  transform: translateY(-20px);
+  font-size: 14px;
+}
+@media (max-width: 600px) {
+  .navC {
+    gap: 0.5rem;
+  }
+  .navC img {
+    width: 50px;
+    height: 50px;
+  }
+  .inputC {
+    width: 150px;
+    margin: 10px 0;
+  }
+  .linkC {
+    display: none;
+  }
+  .menuC {
+    display: block;
+  }
+}
+
+@media (max-width: 400px) {
+  .inputC {
+    width: 100px;
+  }
+  .navC span,
+  .menuC {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .navC {
+    gap: 4px;
+  }
+  .navC span {
+    white-space: normal;
+    display: inline-block;
+    max-width: 69px;
+  }
+  .inputC {
+    width: 69px;
+  }
+}

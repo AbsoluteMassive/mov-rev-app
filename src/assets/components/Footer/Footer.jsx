@@ -1,3 +1,4 @@
+import "../Footer/Footer.css";
 const Footer = ({ children }) => {
   return (
     <footer className="fC">
