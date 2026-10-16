@@ -1,6 +1,7 @@
 import "./App.css";
 import Footer from "./assets/components/Footer/Footer";
 import Navbar from "./assets/components/nav/Navbar";
+import Movies from "./assets/components/Movies/Movies";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       </Navbar>
       <main className="mainC">
         <h2>Hello world!</h2>
+        <Movies />
       </main>
       <Footer>
         <a href="#">Link1</a>
