@@ -8,7 +8,7 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  background: transparent;
+  background: linear-gradient(307deg, #c19292, #2019d7, #e14414);
   margin-bottom: 1rem;
   box-shadow: rgba(2, 2, 37, 0.268) 2.4px 2.4px 3.2px;
 }

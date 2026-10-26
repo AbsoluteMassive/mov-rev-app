@@ -1,0 +1,16 @@
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.titleC {
+  padding-left: 20px;
+}
+.titleC h2 {
+  margin: 0;
+}
+.titleC p {
+  margin: 0;
+  font-size: 12px;
+}

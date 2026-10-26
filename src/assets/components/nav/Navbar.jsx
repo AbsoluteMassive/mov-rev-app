@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "../nav/navbar.css";
-const Navbar = ({ children, logoName }) => {
+const Navbar = ({ children, logoName, movieSearch, setMovieSearch }) => {
   return (
     <nav className="navC">
       <span alt="logo">{logoName}</span>
@@ -10,6 +10,8 @@ const Navbar = ({ children, logoName }) => {
           type="search"
           id="search"
           placeholder=" "
+          value={movieSearch}
+          onChange={(e) => setMovieSearch(e.target.value)}
           pattern=".*\S.*"
           required
         />

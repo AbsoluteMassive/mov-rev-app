@@ -1,6 +1,8 @@
-import { useEffect } from "react";
-
-const movies = () => {
+import { useEffect, useState } from "react";
+import MovieCard from "./MovieCard.jsx";
+import "./Movies.css";
+const Movies = () => {
+  const [movies, Setmovies] = useState([]);
   useEffect(() => {
     getMovies();
   }, []);
@@ -10,9 +12,24 @@ const movies = () => {
       `https://api.themoviedb.org/3/movie/popular?api_key=${key}`,
     );
     const data = await res.json();
-    console.log(data);
+    Setmovies(data.results);
   }
-  return <div></div>;
+  /* const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(movieSearch.toLowerCase()),
+  ); */
+  return (
+    <>
+      <div className="titleC">
+        <h2>Popular</h2>
+        <p>Top {movies.length}</p>
+      </div>
+      <section className="grid-section">
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </section>
+    </>
+  );
 };
 
-export default movies;
+export default Movies;
