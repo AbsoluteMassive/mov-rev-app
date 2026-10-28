@@ -19,7 +19,7 @@ const Navbar = ({ children, logoName, movieSearch, setMovieSearch }) => {
         />
         <label htmlFor="search">Search</label>
       </div>
-
+      <div className="linkC">{children}</div>
       <div className="menuCs">
         <button
           className="menuC"

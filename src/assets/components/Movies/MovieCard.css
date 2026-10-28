@@ -3,27 +3,24 @@
   display: block;
   height: auto;
   object-fit: cover;
-  transition: transform 0.3s ease;
 }
 .imageC {
   position: relative;
 }
-img:hover {
-  transform: scale(1.05);
-}
 .card-overview {
   position: absolute;
   inset: 0;
-  padding: 8px;
+  padding: 10px;
   font-size: 12px;
   color: white;
   opacity: 0;
   background: #000000bf;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
   overflow-y: auto;
+  scrollbar-width: none;
 }
 
-.container:hover .card-overview {
+.imageC:hover .card-overview {
   opacity: 1;
 }
 
