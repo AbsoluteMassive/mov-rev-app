@@ -1,7 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 import "../nav/navbar.css";
 const Navbar = ({ children, logoName, movieSearch, setMovieSearch }) => {
+  const [open, setOpen] = useState(false);
   return (
     <nav className="navC">
       <span alt="logo">{logoName}</span>
@@ -17,10 +19,21 @@ const Navbar = ({ children, logoName, movieSearch, setMovieSearch }) => {
         />
         <label htmlFor="search">Search</label>
       </div>
-      <div className="linkC">{children}</div>
-      <button className="menuC" aria-label="Open menu">
-        <FontAwesomeIcon icon={faBars} />
-      </button>
+
+      <div className="menuCs">
+        <button
+          className="menuC"
+          aria-label={open ? "Close menu" : "Open menu"}
+          onClick={() => setOpen((prev) => !prev)}
+        >
+          {open ? (
+            <FontAwesomeIcon icon={faX} />
+          ) : (
+            <FontAwesomeIcon icon={faBars} />
+          )}
+        </button>
+        {open && <div className="linkCs">{children}</div>}
+      </div>
     </nav>
   );
 };

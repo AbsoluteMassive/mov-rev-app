@@ -5,10 +5,30 @@
   object-fit: cover;
   transition: transform 0.3s ease;
 }
+.imageC {
+  position: relative;
+}
 img:hover {
   transform: scale(1.05);
 }
+.card-overview {
+  position: absolute;
+  inset: 0;
+  padding: 8px;
+  font-size: 12px;
+  color: white;
+  opacity: 0;
+  background: #000000bf;
+  transition: opacity 0.3s;
+  overflow-y: auto;
+}
+
+.container:hover .card-overview {
+  opacity: 1;
+}
+
 .container {
+  cursor: pointer;
   overflow: hidden;
   border-radius: 10px;
   background-color: transparent;
