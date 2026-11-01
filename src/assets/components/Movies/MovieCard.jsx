@@ -8,11 +8,10 @@ const MovieCard = ({ movie }) => {
           alt={movie.title}
         />
         <div className="card-overview">
-          {movie.overview.length > 200
-            ? movie.overview.slice(0, 200) +
-              "..." +
-              "\n\n Click on the title below for more details"
-            : movie.overview}
+          {(movie.overview.length > 200
+            ? movie.overview.slice(0, 250) + "..."
+            : movie.overview) +
+            "\n\nClick on the title below for more details."}
         </div>
       </div>
 
