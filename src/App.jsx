@@ -13,17 +13,19 @@ function App() {
         movieSearch={movieSearch}
         setMovieSearch={setMovieSearch}
       >
-        <a href="#">link1</a>
-        <a href="#">link2</a>
-        <a href="#">link3</a>
+        <a href="#Popular">Popular</a>
+        <a href="#Top Rated">Top Rated</a>
+        <a href="#Upcoming">Upcoming</a>
       </Navbar>
       <main className="mainC">
-        <Movies />
+        <Movies sectionTitle="Popular" />
+        <Movies sectionTitle="Top Rated" />
+        <Movies sectionTitle="Upcoming" />
       </main>
       <Footer>
-        <a href="#">Link1</a>
-        <a href="#">link2</a>
-        <a href="#">link3</a>
+        <a href="#Popular">Popular</a>
+        <a href="#Top Rated">Top Rated</a>
+        <a href="#Upcoming">Upcoming</a>
       </Footer>
     </>
   );

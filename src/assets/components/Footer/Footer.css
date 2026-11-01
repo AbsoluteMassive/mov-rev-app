@@ -13,6 +13,7 @@
   border: 2px solid #fff;
 }
 .flc a {
+  white-space: nowrap;
   text-decoration: none;
   border: 2px solid #fff;
   color: #fff;
@@ -41,7 +42,7 @@
   font-size: 16px;
   color: #fff;
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .fC {
     flex-direction: column;
     gap: 1rem;
@@ -52,6 +53,10 @@
 @media (max-width: 400px) {
   .flc {
     gap: 0.5rem;
+    flex-direction: column;
+  }
+  .flc a {
+    height: fit-content;
   }
 }
 

@@ -7,10 +7,22 @@ const MovieCard = ({ movie }) => {
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
           alt={movie.title}
         />
-        <div className="card-overview">{movie.overview}</div>
+        <div className="card-overview">
+          {movie.overview.length > 200
+            ? movie.overview.slice(0, 200) +
+              "..." +
+              "\n\n Click on the title below for more details"
+            : movie.overview}
+        </div>
       </div>
+
       <div className="card-info">
-        <h2>{movie.title}</h2>
+        <a
+          href={`https://www.themoviedb.org/movie/${movie.id}`}
+          target="_blank"
+        >
+          <h2>{movie.title}</h2>
+        </a>
         <span>{movie.release_date}</span>
       </div>
     </div>
