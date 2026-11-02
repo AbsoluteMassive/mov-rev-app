@@ -115,6 +115,37 @@
   transform: translateY(-20px);
   font-size: 14px;
 }
+.searchResults a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.searchResults {
+  scrollbar-width: thin;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 200px;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 100%;
+  background: linear-gradient(307deg, #c19292, #2019d7, #e14414);
+  border: 1px solid grey;
+  border-radius: 4px;
+  z-index: 1;
+}
+.searchResults a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.searchResults p {
+  margin: 0;
+  padding: 10px;
+  color: #fff;
+}
 @media (max-width: 800px) {
   .navC {
     gap: 0.5rem;

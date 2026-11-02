@@ -1,7 +1,7 @@
 import "./MovieCard.css";
 const MovieCard = ({ movie }) => {
   return (
-    <div className="container">
+    <div className="container" id={movie.id}>
       <div className="imageC">
         <img
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
