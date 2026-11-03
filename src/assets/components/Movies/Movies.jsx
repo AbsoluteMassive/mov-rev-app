@@ -1,6 +1,6 @@
 import MovieCard from "./MovieCard.jsx";
 import "./Movies.css";
-const Movies = ({ sectionTitle, movies }) => {
+const Movies = ({ sectionTitle, movies, watchlist, handleBookmark }) => {
   return (
     <>
       <div className="titleC" id={sectionTitle}>
@@ -9,7 +9,12 @@ const Movies = ({ sectionTitle, movies }) => {
       </div>
       <section className="grid-section">
         {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            watchlist={watchlist}
+            handleBookmark={handleBookmark}
+          />
         ))}
       </section>
     </>

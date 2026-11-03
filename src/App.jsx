@@ -3,6 +3,7 @@ import Footer from "./assets/components/Footer/Footer";
 import Navbar from "./assets/components/nav/Navbar";
 import Movies from "./assets/components/Movies/Movies";
 import { useState, useEffect } from "react";
+import Watchlist from "./assets/components/Watchlist/Watchlist";
 
 function App() {
   const [movieSearch, setMovieSearch] = useState("");
@@ -12,11 +13,9 @@ function App() {
     upcoming: [],
   });
   const [allMovies, setAllMovies] = useState([]);
-
   useEffect(() => {
     getMovies();
   }, []);
-
   async function getMovies() {
     const key = "9e9fd6bbd062eaa9108d092b84c115e3";
 
@@ -50,6 +49,24 @@ function App() {
       ).values(),
     ]);
   }
+
+  const [watchlist, setWatchlist] = useState(() => {
+    const savedWatchlist = localStorage.getItem("watchlist");
+    return savedWatchlist ? JSON.parse(savedWatchlist) : [];
+  });
+  useEffect(() => {
+    localStorage.setItem("watchlist", JSON.stringify(watchlist));
+  }, [watchlist]);
+  const handleBookmark = (movie) => {
+    setWatchlist((prev) => {
+      const bookmarked = prev.some((savedMovie) => savedMovie.id === movie.id);
+      if (bookmarked) {
+        return prev.filter((savedMovie) => savedMovie.id !== movie.id);
+      }
+      return [...prev, movie];
+    });
+  };
+
   return (
     <>
       <Navbar
@@ -61,11 +78,28 @@ function App() {
         <a href="#Popular">Popular</a>
         <a href="#Top Rated">Top Rated</a>
         <a href="#Upcoming">Upcoming</a>
+        <a href="#watchlist">Watchlist</a>
       </Navbar>
       <main className="mainC">
-        <Movies sectionTitle="Popular" movies={movies.popular} />
-        <Movies sectionTitle="Top Rated" movies={movies.top_rated} />
-        <Movies sectionTitle="Upcoming" movies={movies.upcoming} />
+        <Movies
+          sectionTitle="Popular"
+          movies={movies.popular}
+          watchlist={watchlist}
+          handleBookmark={handleBookmark}
+        />
+        <Movies
+          sectionTitle="Top Rated"
+          movies={movies.top_rated}
+          watchlist={watchlist}
+          handleBookmark={handleBookmark}
+        />
+        <Movies
+          sectionTitle="Upcoming"
+          movies={movies.upcoming}
+          watchlist={watchlist}
+          handleBookmark={handleBookmark}
+        />
+        <Watchlist movies={watchlist} handleBookmark={handleBookmark} />
       </main>
       <Footer>
         <a href="#Popular">Popular</a>

@@ -1,5 +1,13 @@
 import "./MovieCard.css";
-const MovieCard = ({ movie }) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar, faBookmark } from "@fortawesome/free-solid-svg-icons";
+const MovieCard = ({ movie, watchlist, handleBookmark }) => {
+  const bookmarked = watchlist.some((savedMovie) => savedMovie.id === movie.id);
+  const handleImageError = (e) => {
+    e.target.src = "https://via.placeholder.com/500x750?text=No+Image";
+    e.target.alt = "No image available";
+    e.target.onerror = null;
+  };
   return (
     <div className="container" id={movie.id}>
       <div className="imageC">
@@ -11,11 +19,24 @@ const MovieCard = ({ movie }) => {
               : "https://via.placeholder.com/500x750?text=No+Image"
           }
           alt={movie.title}
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = "https://via.placeholder.com/500x750?text=No+Image";
-          }}
+          onError={handleImageError}
         />
+        <button
+          className="bookmarkbutton"
+          aria-label={bookmarked ? "Remove from watchlist" : "Add to watchlist"}
+          onClick={() => handleBookmark(movie)}
+        >
+          <FontAwesomeIcon
+            className={bookmarked ? "bookmark active" : "bookmark"}
+            icon={faBookmark}
+          />
+        </button>
+        <div className="rating">
+          <span>
+            <FontAwesomeIcon icon={faStar} className="star" />
+          </span>
+          <span>{movie.vote_average.toFixed(1)}</span>
+        </div>
         <div className="card-overview">
           {!movie.overview
             ? "No overview available for this movie."
@@ -33,7 +54,8 @@ const MovieCard = ({ movie }) => {
         >
           <h2>{movie.title}</h2>
         </a>
-        <span>{movie.release_date}</span>
+
+        <span>{movie.release_date.slice(0, 4)}</span>
       </div>
     </div>
   );
