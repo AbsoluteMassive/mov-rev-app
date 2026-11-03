@@ -10,12 +10,17 @@ const Navbar = ({
   movies,
 }) => {
   const [open, setOpen] = useState(false);
+  const handleMenuToggle = () => {
+    setOpen((prev) => !prev);
+    setShowSearch(false);
+  };
   const [showSearch, setShowSearch] = useState(false);
   const handleSearch = (e) => {
     setMovieSearch(e.target.value);
     setShowSearch(true);
+    setOpen(false);
   };
-  const handleClick = (e) => {
+  const handleResultsClick = (e) => {
     setShowSearch(false);
     setMovieSearch("");
   };
@@ -41,7 +46,11 @@ const Navbar = ({
           <div className="searchResults">
             {filteredMovies.length > 0 ? (
               filteredMovies.slice(0, 8).map((movie) => (
-                <a href={`#${movie.id}`} key={movie.id} onClick={handleClick}>
+                <a
+                  href={`#${movie.id}`}
+                  key={movie.id}
+                  onClick={handleResultsClick}
+                >
                   {movie.title}
                 </a>
               ))
@@ -51,12 +60,11 @@ const Navbar = ({
           </div>
         )}
       </div>
-      <div className="linkC">{children}</div>
       <div className="menuCs">
         <button
           className="menuC"
           aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((prev) => !prev)}
+          onClick={handleMenuToggle}
         >
           {open ? (
             <FontAwesomeIcon icon={faX} />
@@ -65,7 +73,7 @@ const Navbar = ({
           )}
         </button>
         {open && (
-          <div className="linkCs" onClick={() => setOpen(false)}>
+          <div className="linkCs" onClick={handleMenuToggle}>
             {children}
           </div>
         )}

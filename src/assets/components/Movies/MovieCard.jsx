@@ -1,8 +1,15 @@
 import "./MovieCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faBookmark } from "@fortawesome/free-solid-svg-icons";
-const MovieCard = ({ movie, watchlist, handleBookmark }) => {
+import { faStar, faBookmark, faEye } from "@fortawesome/free-solid-svg-icons";
+const MovieCard = ({
+  movie,
+  watchlist,
+  handleBookmark,
+  watched,
+  handleWatched,
+}) => {
   const bookmarked = watchlist.some((savedMovie) => savedMovie.id === movie.id);
+  const watchedMovie = watched.some((savedMovie) => savedMovie.id === movie.id);
   const handleImageError = (e) => {
     e.target.src = "https://via.placeholder.com/500x750?text=No+Image";
     e.target.alt = "No image available";
@@ -21,16 +28,32 @@ const MovieCard = ({ movie, watchlist, handleBookmark }) => {
           alt={movie.title}
           onError={handleImageError}
         />
-        <button
-          className="bookmarkbutton"
-          aria-label={bookmarked ? "Remove from watchlist" : "Add to watchlist"}
-          onClick={() => handleBookmark(movie)}
-        >
-          <FontAwesomeIcon
-            className={bookmarked ? "bookmark active" : "bookmark"}
-            icon={faBookmark}
-          />
-        </button>
+        <div className="buttons">
+          <button
+            className="bookmarkbutton"
+            aria-label={
+              bookmarked ? "Remove from watchlist" : "Add to watchlist"
+            }
+            onClick={() => handleBookmark(movie)}
+          >
+            <FontAwesomeIcon
+              className={bookmarked ? "bookmark active" : "bookmark"}
+              icon={faBookmark}
+            />
+          </button>
+          <button
+            className="watchedbutton"
+            aria-label={
+              watchedMovie ? "Mark as not watched" : "Mark as watched"
+            }
+            onClick={() => handleWatched(movie)}
+          >
+            <FontAwesomeIcon
+              className={watchedMovie ? "eye active2" : "eye"}
+              icon={faEye}
+            />
+          </button>
+        </div>
         <div className="rating">
           <span>
             <FontAwesomeIcon icon={faStar} className="star" />

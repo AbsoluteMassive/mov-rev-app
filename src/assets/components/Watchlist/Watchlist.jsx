@@ -1,8 +1,8 @@
 import MovieCard from "../Movies/MovieCard";
-const Watchlist = ({ movies, handleBookmark }) => {
+const Watchlist = ({ movies, handleBookmark, watched, handleWatched }) => {
   return (
     <>
-      <div className="titleC" id="watchlist">
+      <div className="titleC" id="Watchlist">
         <h2>My Watchlist </h2>
         {movies.length > 0 && (
           <p>
@@ -20,6 +20,8 @@ const Watchlist = ({ movies, handleBookmark }) => {
               movie={movie}
               watchlist={movies}
               handleBookmark={handleBookmark}
+              watched={watched}
+              handleWatched={handleWatched}
             />
           ))}
         </section>
