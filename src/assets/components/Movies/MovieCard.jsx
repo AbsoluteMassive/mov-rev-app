@@ -78,7 +78,7 @@ const MovieCard = ({
           <h2>{movie.title}</h2>
         </a>
 
-        <span>{movie.release_date.slice(0, 4)}</span>
+        {movie.release_date && <span>{movie.release_date.slice(0, 4)}</span>}
       </div>
     </div>
   );

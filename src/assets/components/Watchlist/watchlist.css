@@ -1,18 +1,111 @@
-.titleC {
-  padding-left: 20px;
-  scroll-margin-top: 80px;
-}
-.titleC h2 {
-  margin: 0;
-}
-.titleC p {
-  margin: 0;
-  font-size: 12px;
-}
-
 .grid-section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 20px;
   padding: 20px;
+}
+
+.titleC {
+  padding-left: 20px;
+  scroll-margin-top: 80px;
+}
+
+.titleC h2 {
+  margin: 0;
+}
+
+.titleC p {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  min-width: 300px;
+}
+
+.SortC {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-right: 20px;
+}
+
+.SortC div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.SortC label {
+  font-size: 12px;
+  color: white;
+}
+
+.select {
+  background-color: #08080899;
+  backdrop-filter: blur(14px);
+  border: 1px solid #ffffff40;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #ffffff;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.select:hover {
+  background-color: #080808bf;
+  border-color: #ffffff80;
+}
+
+.select:focus {
+  background-color: #080808cc;
+  border-color: #ffffffb3;
+  box-shadow: 0 0 0 2px #ffffff1a;
+}
+
+.select option {
+  background-color: #111111;
+  color: #ffffff;
+}
+@media (max-width: 500px) {
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .SortC {
+    padding-left: 20px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 300px) {
+  .SortC {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .SortC div,
+  .select {
+    width: 100%;
+  }
+
+  .grid-section {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+    padding: 12px;
+  }
 }
