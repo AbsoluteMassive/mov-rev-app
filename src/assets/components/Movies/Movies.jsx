@@ -31,8 +31,7 @@ const Movies = ({
 
         <div className="SortC">
           <div>
-            <label htmlFor="sortBy">Sort by</label>
-            <div className="sortItem">
+            <label htmlFor="sortBy">
               <FontAwesomeIcon
                 icon={
                   sortBy === "rating"
@@ -41,42 +40,43 @@ const Movies = ({
                       ? faCalendar
                       : faFont
                 }
-              />
-              <select
-                name="sortBy"
-                id="sortBy"
-                className="select"
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-              >
-                <option value="rating">Rating</option>
-                <option value="release-date">Release date</option>
-                <option value="title">Movie title</option>
-              </select>
-            </div>
+              />{" "}
+              Sort by
+            </label>
+            <select
+              name="sortBy"
+              id="sortBy"
+              className="select"
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+            >
+              <option value="rating">Rating</option>
+              <option value="release-date">Release date</option>
+              <option value="title">Movie title</option>
+            </select>
           </div>
 
           <div>
-            <label htmlFor="sortOrder">Direction</label>
-            <div className="sortItem">
+            <label htmlFor="sortOrder">
               <FontAwesomeIcon
                 icon={
                   sortOrder === "asc"
                     ? faArrowDownShortWide
                     : faArrowDownWideShort
                 }
-              />
-              <select
-                name="sortOrder"
-                id="sortOrder"
-                className="select"
-                value={sortOrder}
-                onChange={(e) => setSortOrder(e.target.value)}
-              >
-                <option value="asc">Ascending</option>
-                <option value="desc">Descending</option>
-              </select>
-            </div>
+              />{" "}
+              Direction
+            </label>
+            <select
+              name="sortOrder"
+              id="sortOrder"
+              className="select"
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+            >
+              <option value="asc">Ascending</option>
+              <option value="desc">Descending</option>
+            </select>
           </div>
         </div>
       </div>

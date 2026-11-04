@@ -21,6 +21,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 15px;
+  min-width: 300px;
 }
 .SortC {
   display: flex;
@@ -32,7 +33,6 @@
 .SortC div {
   display: flex;
   flex-direction: column;
-
   gap: 5px;
 }
 .SortC label {
@@ -40,6 +40,7 @@
   color: white;
 }
 .select {
+  position: relative;
   background: transparent;
   width: fit-content;
   outline: none;
@@ -48,11 +49,12 @@
   cursor: pointer;
   color: white;
 }
-.select option {
-  background: rgba(0, 0, 0, 0.3);
 
+.select option {
+  background-color: rgba(181, 7, 7, 0.662);
   color: white;
 }
+
 @media (max-width: 500px) {
   .top {
     align-items: flex-start;
@@ -62,18 +64,10 @@
   .SortC {
     padding-left: 20px;
     padding-right: 20px;
-    width: calc(100% - 40px);
   }
 }
 @media (max-width: 300px) {
   .SortC {
     flex-direction: column;
-    padding: 0;
-  }
-  .top {
-    align-items: center;
-  }
-  .titleC {
-    padding-left: 0;
   }
 }
