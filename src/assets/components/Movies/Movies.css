@@ -15,3 +15,65 @@
   margin: 0;
   font-size: 12px;
 }
+.top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.SortC {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-right: 20px;
+}
+
+.SortC div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+.SortC label {
+  font-size: 12px;
+  color: white;
+}
+.select {
+  background: transparent;
+  width: fit-content;
+  outline: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+.select option {
+  background: rgba(0, 0, 0, 0.3);
+
+  color: white;
+}
+@media (max-width: 500px) {
+  .top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .SortC {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: calc(100% - 40px);
+  }
+}
+@media (max-width: 300px) {
+  .SortC {
+    flex-direction: column;
+    padding: 0;
+  }
+  .top {
+    align-items: center;
+  }
+  .titleC {
+    padding-left: 0;
+  }
+}

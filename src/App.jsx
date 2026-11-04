@@ -7,6 +7,8 @@ import Watchlist from "./assets/components/Watchlist/Watchlist";
 
 function App() {
   const [movieSearch, setMovieSearch] = useState("");
+  const [fetching, setFetching] = useState(false);
+  const [error, setError] = useState(false);
   const [movies, setMovies] = useState({
     popular: [],
     top_rated: [],
@@ -16,34 +18,51 @@ function App() {
   useEffect(() => {
     getMovies();
   }, []);
+  const delay = (callback, ms) => setTimeout(callback, ms);
   async function getMovies() {
-    const key = "9e9fd6bbd062eaa9108d092b84c115e3";
-    const popularRes = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${key}`,
-    );
-    const popularData = await popularRes.json();
-    const topRatedRes = await fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=${key}`,
-    );
-    const topRatedData = await topRatedRes.json();
-    const upcomingRes = await fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=${key}`,
-    );
-    const upcomingData = await upcomingRes.json();
-    setMovies({
-      popular: popularData.results,
-      top_rated: topRatedData.results,
-      upcoming: upcomingData.results,
-    });
-    setAllMovies([
-      ...new Map(
-        [
-          ...popularData.results,
-          ...topRatedData.results,
-          ...upcomingData.results,
-        ].map((movie) => [movie.id, movie]),
-      ).values(),
-    ]);
+    setFetching(true);
+    setError(false);
+
+    try {
+      const key = "9e9fd6bbd062eaa9108d092b84c115e3";
+      const popularRes = await fetch(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${key}`,
+      );
+      const topRatedRes = await fetch(
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${key}`,
+      );
+      const upcomingRes = await fetch(
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${key}`,
+      );
+      if (!upcomingRes.ok || !topRatedRes.ok || !popularRes.ok) {
+        throw new Error("Failed to fetch movies");
+      }
+      const popularData = await popularRes.json();
+      const topRatedData = await topRatedRes.json();
+      const upcomingData = await upcomingRes.json();
+      setMovies({
+        popular: popularData.results,
+        top_rated: topRatedData.results,
+        upcoming: upcomingData.results,
+      });
+      setAllMovies([
+        ...new Map(
+          [
+            ...popularData.results,
+            ...topRatedData.results,
+            ...upcomingData.results,
+          ].map((movie) => [movie.id, movie]),
+        ).values(),
+      ]);
+      delay(() => setFetching(false), 2000);
+      setFetching(false);
+    } catch (err) {
+      console.error(err);
+      delay(() => {
+        setFetching(false);
+        setError(true);
+      }, 2000);
+    }
   }
 
   const [watchlist, setWatchlist] = useState(() => {
@@ -100,30 +119,41 @@ function App() {
         <a href="#Watched">Watched</a>
       </Navbar>
       <main className="mainC">
-        <Movies
-          sectionTitle="Popular"
-          movies={movies.popular}
-          watchlist={watchlist}
-          handleBookmark={handleBookmark}
-          watched={watched}
-          handleWatched={handleWatched}
-        />
-        <Movies
-          sectionTitle="Top Rated"
-          movies={movies.top_rated}
-          watchlist={watchlist}
-          handleBookmark={handleBookmark}
-          watched={watched}
-          handleWatched={handleWatched}
-        />
-        <Movies
-          sectionTitle="Upcoming"
-          movies={movies.upcoming}
-          watchlist={watchlist}
-          handleBookmark={handleBookmark}
-          watched={watched}
-          handleWatched={handleWatched}
-        />
+        {fetching && <p style={{ textAlign: "center" }}>Loading movies...</p>}
+        {error && (
+          <div className="errorC">
+            <p>Unable to load movies.</p>
+            <button onClick={getMovies}>Try again</button>
+          </div>
+        )}
+        {!fetching && !error && (
+          <>
+            <Movies
+              sectionTitle="Popular"
+              movies={movies.popular}
+              watchlist={watchlist}
+              handleBookmark={handleBookmark}
+              watched={watched}
+              handleWatched={handleWatched}
+            />
+            <Movies
+              sectionTitle="Top Rated"
+              movies={movies.top_rated}
+              watchlist={watchlist}
+              handleBookmark={handleBookmark}
+              watched={watched}
+              handleWatched={handleWatched}
+            />
+            <Movies
+              sectionTitle="Upcoming"
+              movies={movies.upcoming}
+              watchlist={watchlist}
+              handleBookmark={handleBookmark}
+              watched={watched}
+              handleWatched={handleWatched}
+            />
+          </>
+        )}
         <Watchlist
           movies={watchlist}
           handleBookmark={handleBookmark}
