@@ -7,7 +7,7 @@ import Watchlist from "./assets/components/Watchlist/Watchlist";
 
 function App() {
   const [movieSearch, setMovieSearch] = useState("");
-  const [fetching, setFetching] = useState(false);
+  const [fetching, setFetching] = useState(true);
   const [error, setError] = useState(false);
   const [movies, setMovies] = useState({
     popular: [],
@@ -18,7 +18,9 @@ function App() {
   useEffect(() => {
     getMovies();
   }, []);
-  const delay = (callback, ms) => setTimeout(callback, ms);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   async function getMovies() {
     setFetching(true);
     setError(false);
@@ -54,14 +56,12 @@ function App() {
           ].map((movie) => [movie.id, movie]),
         ).values(),
       ]);
-      delay(() => setFetching(false), 2000);
+
       setFetching(false);
     } catch (err) {
       console.error(err);
-      delay(() => {
-        setFetching(false);
-        setError(true);
-      }, 2000);
+      setFetching(false);
+      setError(true);
     }
   }
 
@@ -113,7 +113,7 @@ function App() {
         movies={allMovies}
       >
         <a href="#Popular">Popular</a>
-        <a href="#Top Rated">Top Rated</a>
+        <a href="#Top_Rated">Top Rated</a>
         <a href="#Upcoming">Upcoming</a>
         <a href="#Watchlist">Watchlist</a>
         <a href="#Watched">Watched</a>
@@ -137,7 +137,7 @@ function App() {
               handleWatched={handleWatched}
             />
             <Movies
-              sectionTitle="Top Rated"
+              sectionTitle="Top_Rated"
               movies={movies.top_rated}
               watchlist={watchlist}
               handleBookmark={handleBookmark}
@@ -154,25 +154,29 @@ function App() {
             />
           </>
         )}
-        <Watchlist
-          movies={watchlist}
-          handleBookmark={handleBookmark}
-          watched={watched}
-          handleWatched={handleWatched}
-        />
+        {!fetching && (
+          <>
+            <Watchlist
+              movies={watchlist}
+              handleBookmark={handleBookmark}
+              watched={watched}
+              handleWatched={handleWatched}
+            />
 
-        <Movies
-          sectionTitle="Watched"
-          movies={watched}
-          watchlist={watchlist}
-          handleBookmark={handleBookmark}
-          watched={watched}
-          handleWatched={handleWatched}
-        />
+            <Movies
+              sectionTitle="Watched"
+              movies={watched}
+              watchlist={watchlist}
+              handleBookmark={handleBookmark}
+              watched={watched}
+              handleWatched={handleWatched}
+            />
+          </>
+        )}
       </main>
       <Footer>
         <a href="#Popular">Popular</a>
-        <a href="#Top Rated">Top Rated</a>
+        <a href="#Top_Rated">Top Rated</a>
         <a href="#Upcoming">Upcoming</a>
       </Footer>
     </>

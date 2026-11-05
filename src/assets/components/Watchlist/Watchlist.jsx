@@ -9,7 +9,7 @@ import {
   faFont,
 } from "@fortawesome/free-solid-svg-icons";
 const Watchlist = ({ movies, handleBookmark, watched, handleWatched }) => {
-  const [sortOrder, setSortOrder] = useState("desc");
+  const [sortOrder, setSortOrder] = useState("asc");
   const [sortBy, setSortBy] = useState("title");
   const sortedMovies = [...movies].sort((a, b) => {
     let comparison = 0;
@@ -50,7 +50,7 @@ const Watchlist = ({ movies, handleBookmark, watched, handleWatched }) => {
         {movies.length > 0 && (
           <div className="SortC">
             <div>
-              <label htmlFor="sortBy">
+              <label htmlFor="sortBy-watchlist">
                 <FontAwesomeIcon
                   icon={
                     sortBy === "rating"
@@ -63,8 +63,8 @@ const Watchlist = ({ movies, handleBookmark, watched, handleWatched }) => {
                 Sort by
               </label>
               <select
-                name="sortBy"
-                id="sortBy"
+                name="sortBy-watchlist"
+                id="sortBy-watchlist"
                 className="select"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
@@ -76,7 +76,7 @@ const Watchlist = ({ movies, handleBookmark, watched, handleWatched }) => {
             </div>
 
             <div>
-              <label htmlFor="sortOrder">
+              <label htmlFor="sortOrder-watchlist">
                 <FontAwesomeIcon
                   icon={
                     sortOrder === "asc"
@@ -87,8 +87,8 @@ const Watchlist = ({ movies, handleBookmark, watched, handleWatched }) => {
                 Direction
               </label>
               <select
-                name="sortOrder"
-                id="sortOrder"
+                name="sortOrder-watchlist"
+                id="sortOrder-watchlist"
                 className="select"
                 value={sortOrder}
                 onChange={(e) => setSortOrder(e.target.value)}

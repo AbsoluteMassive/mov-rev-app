@@ -48,7 +48,7 @@ const Movies = ({
     <>
       <div className="top">
         <div className="titleC" id={sectionTitle}>
-          <h2>{sectionTitle}</h2>
+          <h2>{sectionTitle.replaceAll("_", " ")}</h2>
           {movies.length === 0 && <p>No movies.</p>}
           {movies.length > 0 && (
             <p>
@@ -60,7 +60,7 @@ const Movies = ({
         {movies.length > 0 && (
           <div className="SortC">
             <div>
-              <label htmlFor="sortBy">
+              <label htmlFor={`sortBy-for-${sectionTitle}`}>
                 <FontAwesomeIcon
                   icon={
                     sortBy === "rating"
@@ -73,8 +73,8 @@ const Movies = ({
                 Sort by
               </label>
               <select
-                name="sortBy"
-                id="sortBy"
+                name={`sortBy-for-${sectionTitle}`}
+                id={`sortBy-for-${sectionTitle}`}
                 className="select"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
@@ -86,7 +86,7 @@ const Movies = ({
             </div>
 
             <div>
-              <label htmlFor="sortOrder">
+              <label htmlFor={`sortOrder-for-${sectionTitle}`}>
                 <FontAwesomeIcon
                   icon={
                     sortOrder === "asc"
@@ -97,8 +97,8 @@ const Movies = ({
                 Direction
               </label>
               <select
-                name="sortOrder"
-                id="sortOrder"
+                name={`sortOrder-for-${sectionTitle}`}
+                id={`sortOrder-for-${sectionTitle}`}
                 className="select"
                 value={sortOrder}
                 onChange={(e) => setSortOrder(e.target.value)}

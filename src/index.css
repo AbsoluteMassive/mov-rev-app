@@ -3,19 +3,17 @@
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("./assets/fonts/Montserrat-VariableFont_wght.woff2");
-  format: ("woff2");
+  src: url("./assets/fonts/Montserrat-VariableFont_wght.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
-html,
-body {
-  overflow-x: clip;
+html {
   scroll-behavior: smooth;
-  user-select: none;
 }
 body {
   margin: 0;
+  overflow-x: clip;
+  user-select: none;
   color: #fff;
   font-family: "Montserrat", sans-serif;
   background: #070707;

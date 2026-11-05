@@ -1,6 +1,8 @@
 import "./MovieCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faBookmark, faEye } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+
 const MovieCard = ({
   movie,
   watchlist,
@@ -10,6 +12,8 @@ const MovieCard = ({
 }) => {
   const bookmarked = watchlist.some((savedMovie) => savedMovie.id === movie.id);
   const watchedMovie = watched.some((savedMovie) => savedMovie.id === movie.id);
+  const [showReview, setShowReview] = useState(false);
+  const [review, setReview] = useState("");
   const handleImageError = (e) => {
     e.target.src = "https://via.placeholder.com/500x750?text=No+Image";
     e.target.alt = "No image available";
