@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import "../nav/navbar.css";
 const Navbar = ({
@@ -62,12 +62,12 @@ const Navbar = ({
       </div>
       <div className="menuCs">
         <button
-          className="menuC"
+          className={open ? "menuC x" : "menuC"}
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={handleMenuToggle}
         >
           {open ? (
-            <FontAwesomeIcon icon={faX} />
+            <FontAwesomeIcon icon={faXmark} />
           ) : (
             <FontAwesomeIcon icon={faBars} />
           )}

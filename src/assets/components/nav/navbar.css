@@ -71,7 +71,9 @@
   font-size: 20px;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
 }
 .linkCs a:active {
   transform: scale(0.95);
@@ -87,6 +89,9 @@
   margin: 10px 1rem;
   width: 190px;
   flex-shrink: 0;
+}
+.x:hover {
+  color: #e14414;
 }
 
 .inputC input {
