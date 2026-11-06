@@ -17,6 +17,16 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.settingC .group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}
+
 .settingC label {
   display: flex;
   align-items: center;
@@ -24,6 +34,18 @@
   font-size: 16px;
   cursor: pointer;
   user-select: none;
+}
+
+.settingC .groupTitle {
+  font-weight: 600;
+}
+
+.settingC .optionGrid {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 12px 30px;
 }
 
 .settingC .option {
@@ -35,4 +57,29 @@
   height: 16px;
   accent-color: #e14414;
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .settingC {
+    margin: 0 10px 15px;
+    padding: 20px;
+    gap: 12px;
+  }
+
+  .settingC .group {
+    padding: 20px;
+    gap: 12px;
+  }
+
+  .settingC h2 {
+    font-size: 18px;
+  }
+
+  .settingC label {
+    font-size: 14px;
+  }
+
+  .settingC .optionGrid {
+    gap: 12px 20px;
+  }
 }
