@@ -16,6 +16,7 @@ const Movies = ({
   handleBookmark,
   watched,
   handleWatched,
+  show,
 }) => {
   const [sortOrder, setSortOrder] = useState("desc");
   const [sortBy, setSortBy] = useState("rating");
@@ -121,6 +122,7 @@ const Movies = ({
               handleBookmark={handleBookmark}
               watched={watched}
               handleWatched={handleWatched}
+              show={show}
             />
           ))}
         </section>

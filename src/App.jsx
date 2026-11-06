@@ -4,6 +4,7 @@ import Navbar from "./assets/components/nav/Navbar";
 import Movies from "./assets/components/Movies/Movies";
 import { useState, useEffect } from "react";
 import Watchlist from "./assets/components/Watchlist/Watchlist";
+import CardView from "./assets/components/CardView/CardView";
 
 function App() {
   const [movieSearch, setMovieSearch] = useState("");
@@ -103,6 +104,28 @@ function App() {
       prev.filter((savedMovie) => savedMovie.id !== movie.id),
     );
   };
+  const [show, setShow] = useState(() => {
+    const savedOptions = localStorage.getItem("options");
+    return savedOptions
+      ? JSON.parse(savedOptions)
+      : {
+          bookmark: true,
+          watched: true,
+          review: true,
+          overview: true,
+          rating: true,
+          year: true,
+        };
+  });
+  useEffect(() => {
+    localStorage.setItem("options", JSON.stringify(show));
+  }, [show]);
+  const handleShowChange = (option) => {
+    setShow((prev) => ({
+      ...prev,
+      [option]: !prev[option],
+    }));
+  };
 
   return (
     <>
@@ -117,6 +140,7 @@ function App() {
         <a href="#Upcoming">Upcoming</a>
         <a href="#Watchlist">Watchlist</a>
         <a href="#Watched">Watched</a>
+        <a href="#movieCardSettings">Settings</a>
       </Navbar>
       <main className="mainC">
         {fetching && <p style={{ textAlign: "center" }}>Loading movies...</p>}
@@ -135,6 +159,7 @@ function App() {
               handleBookmark={handleBookmark}
               watched={watched}
               handleWatched={handleWatched}
+              show={show}
             />
             <Movies
               sectionTitle="Top_Rated"
@@ -143,6 +168,7 @@ function App() {
               handleBookmark={handleBookmark}
               watched={watched}
               handleWatched={handleWatched}
+              show={show}
             />
             <Movies
               sectionTitle="Upcoming"
@@ -151,6 +177,7 @@ function App() {
               handleBookmark={handleBookmark}
               watched={watched}
               handleWatched={handleWatched}
+              show={show}
             />
           </>
         )}
@@ -161,6 +188,7 @@ function App() {
               handleBookmark={handleBookmark}
               watched={watched}
               handleWatched={handleWatched}
+              show={show}
             />
 
             <Movies
@@ -170,6 +198,12 @@ function App() {
               handleBookmark={handleBookmark}
               watched={watched}
               handleWatched={handleWatched}
+              show={show}
+            />
+            <CardView
+              show={show}
+              handleShowChange={handleShowChange}
+              setShow={setShow}
             />
           </>
         )}

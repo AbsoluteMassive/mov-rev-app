@@ -9,7 +9,7 @@
   top: 0;
   z-index: 9999;
   background: linear-gradient(307deg, #c19292, #2019d7, #e14414);
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   box-shadow: rgba(2, 2, 37, 0.268) 2.4px 2.4px 3.2px;
 }
 .navC span {
@@ -78,6 +78,9 @@
 }
 .menuC:active {
   transform: scale(0.95);
+}
+.menuC:hover {
+  transform: scale(1.1);
 }
 .inputC {
   position: relative;

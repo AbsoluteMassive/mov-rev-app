@@ -8,7 +8,13 @@ import {
   faCalendar,
   faFont,
 } from "@fortawesome/free-solid-svg-icons";
-const Watchlist = ({ movies, handleBookmark, watched, handleWatched }) => {
+const Watchlist = ({
+  movies,
+  handleBookmark,
+  watched,
+  handleWatched,
+  show,
+}) => {
   const [sortOrder, setSortOrder] = useState("asc");
   const [sortBy, setSortBy] = useState("title");
   const sortedMovies = [...movies].sort((a, b) => {
@@ -111,6 +117,7 @@ const Watchlist = ({ movies, handleBookmark, watched, handleWatched }) => {
               handleBookmark={handleBookmark}
               watched={watched}
               handleWatched={handleWatched}
+              show={show}
             />
           ))}
         </section>

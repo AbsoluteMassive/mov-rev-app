@@ -1,0 +1,38 @@
+.settingC {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  margin: 0 20px 10px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}
+
+.settingC h2 {
+  margin: 0;
+  padding-bottom: 15px;
+  font-size: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.settingC label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.settingC .option {
+  padding-left: 20px;
+}
+
+.settingC input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #e14414;
+  cursor: pointer;
+}
