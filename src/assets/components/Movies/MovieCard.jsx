@@ -20,6 +20,7 @@ const MovieCard = ({
   const watchedMovie = watched.some((savedMovie) => savedMovie.id === movie.id);
   const [showReview, setShowReview] = useState(false);
   const [myReview, setMyReview] = useState("");
+
   const handleImageError = (e) => {
     e.target.src = "https://via.placeholder.com/500x750?text=No+Image";
     e.target.alt = "No image available";
@@ -97,8 +98,9 @@ const MovieCard = ({
         <a
           href={`https://www.themoviedb.org/movie/${movie.id}`}
           target="_blank"
+          rel="noopener noreferrer"
         >
-          <h2>{movie.title.replaceAll(":", "\n")}</h2>
+          <h2>{movie.title.replace(":", "\n")}</h2>
         </a>
 
         {show.year && movie.release_date && (

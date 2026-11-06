@@ -10,7 +10,7 @@
   z-index: 9999;
   background: linear-gradient(307deg, #c19292, #2019d7, #e14414);
   margin-bottom: 2rem;
-  box-shadow: rgba(2, 2, 37, 0.268) 2.4px 2.4px 3.2px;
+  box-shadow: #02022544 2.4px 2.4px 3.2px;
 }
 .navC span {
   display: block;
@@ -123,7 +123,7 @@
   text-decoration: none;
   color: #fff;
   transition: background-color 0.3s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid #ffffff33;
 }
 .searchResults {
   scrollbar-width: thin;
@@ -139,7 +139,7 @@
   border-radius: 4px;
 }
 .searchResults a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #ffffff33;
 }
 
 .searchResults p {
