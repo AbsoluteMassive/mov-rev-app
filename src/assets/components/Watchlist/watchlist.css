@@ -28,6 +28,10 @@
   gap: 15px;
   min-width: 300px;
 }
+.G {
+  min-height: 200px;
+  align-items: flex-start;
+}
 
 .SortC {
   display: flex;

@@ -1,4 +1,5 @@
 import MovieCard from "../Movies/MovieCard";
+import "./Watchlist.css";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -43,7 +44,7 @@ const Watchlist = ({
   });
   return (
     <>
-      <div className="top">
+      <div className={movies.length === 0 ? "top G" : "top"}>
         <div className="titleC" id="Watchlist">
           <h2>My Watchlist </h2>
           {movies.length > 0 && (

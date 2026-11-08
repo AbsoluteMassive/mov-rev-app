@@ -4,7 +4,6 @@
   align-items: center;
   padding: 0 1rem;
   width: 100%;
-  box-sizing: border-box;
   position: sticky;
   top: 0;
   z-index: 9999;
@@ -65,12 +64,16 @@
 }
 .menuC {
   display: block;
+  width: 45px;
+  height: 45px;
   background-color: transparent;
   color: #fff;
-  padding: 6px 10px;
+  margin: 0;
   font-size: 20px;
   cursor: pointer;
-  border: 1px solid transparent;
+  border: none;
+  overflow: hidden;
+  border-radius: 50%;
   transition:
     transform 0.3s ease,
     color 0.3s ease;
@@ -78,12 +81,7 @@
 .linkCs a:active {
   transform: scale(0.95);
 }
-.menuC:active {
-  transform: scale(0.95);
-}
-.menuC:hover {
-  transform: scale(1.1);
-}
+
 .inputC {
   position: relative;
   margin: 10px 1rem;
@@ -92,6 +90,9 @@
 }
 .x:hover {
   color: #e14414;
+}
+.y:hover {
+  background: #ffffff1a;
 }
 
 .inputC input {
@@ -171,10 +172,6 @@
     width: 120px;
   }
   .navC span,
-  .menuC {
-    font-size: 1.2rem;
-  }
-
   .linkCs {
     gap: 0.5rem;
   }
@@ -187,6 +184,10 @@
   .navC span,
   .menuC {
     font-size: 1rem;
+  }
+  .menuC {
+    width: 30px;
+    height: 30px;
   }
 }
 

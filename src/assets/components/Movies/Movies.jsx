@@ -47,10 +47,17 @@ const Movies = ({
 
   return (
     <>
-      <div className="top">
+      <div className={movies.length === 0 ? "top G" : "top"}>
         <div className="titleC" id={sectionTitle}>
           <h2>{sectionTitle.replaceAll("_", " ")}</h2>
-          {movies.length === 0 && <p>No movies.</p>}
+          {movies.length === 0 &&
+            (sectionTitle.toLowerCase() === "watched" ? (
+              <p>
+                You have watched...<strong>NOTHING</strong>, really?
+              </p>
+            ) : (
+              <p>No movies available.</p>
+            ))}
           {movies.length > 0 && (
             <p>
               {movies.length} {movies.length === 1 ? "movie" : "movies"}.

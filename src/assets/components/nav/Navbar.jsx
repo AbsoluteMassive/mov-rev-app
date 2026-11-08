@@ -62,7 +62,7 @@ const Navbar = ({
       </div>
       <div className="menuCs">
         <button
-          className={open ? "menuC x" : "menuC"}
+          className={open ? "menuC x" : "menuC y"}
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={handleMenuToggle}
         >
