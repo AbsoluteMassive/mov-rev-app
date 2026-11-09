@@ -126,6 +126,7 @@ function App() {
       [option]: !prev[option],
     }));
   };
+  const [showSearch, setShowSearch] = useState(false);
 
   return (
     <>
@@ -134,6 +135,13 @@ function App() {
         movieSearch={movieSearch}
         setMovieSearch={setMovieSearch}
         movies={allMovies}
+        watchlist={watchlist}
+        handleBookmark={handleBookmark}
+        watched={watched}
+        handleWatched={handleWatched}
+        show={show}
+        showSearch={showSearch}
+        setShowSearch={setShowSearch}
       >
         <a href="#Popular">Popular</a>
         <a href="#Top_Rated">Top Rated</a>
@@ -142,7 +150,12 @@ function App() {
         <a href="#Watched">Watched</a>
         <a href="#movieCardSettings">Settings</a>
       </Navbar>
-      <main className="mainC">
+      <main
+        className="mainC"
+        onClick={() => {
+          setShowSearch(false);
+        }}
+      >
         {fetching && <p style={{ textAlign: "center" }}>Loading movies...</p>}
         {error && (
           <div className="errorC">
