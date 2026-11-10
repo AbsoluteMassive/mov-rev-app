@@ -277,3 +277,9 @@
     width: 69px;
   }
 }
+@media (max-height: 400px) {
+  .linkCs {
+    top: 115%;
+    gap: 0;
+  }
+}
